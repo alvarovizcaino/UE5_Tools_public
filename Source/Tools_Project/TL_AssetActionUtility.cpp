@@ -4,6 +4,8 @@
 #include "TL_AssetActionUtility.h"
 #include "EditorUtilityLibrary.h"
 
+#pragma region RenameSelectedAssets
+
 void UTL_AssetActionUtility::RenameSelectedAssets(FString SearchPattern, FString ReplacePattern, ESearchCase::Type SearchCase)
 {
     // Check if something needs to be done
@@ -34,6 +36,10 @@ void UTL_AssetActionUtility::RenameSelectedAssets(FString SearchPattern, FString
     GiveFeedback(TEXT("Renamed"), Counter);
 }
 
+#pragma endregion
+
+#pragma region Helper
+
 void UTL_AssetActionUtility::PrintToScreen(FString Message, FColor Color)
 {
     if (ensure(GEngine))
@@ -54,3 +60,5 @@ void UTL_AssetActionUtility::GiveFeedback(FString Method, uint32 Counter)
     }
     PrintToScreen(Message, Color);
 }
+
+#pragma endregion
